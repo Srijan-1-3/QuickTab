@@ -9,6 +9,13 @@
     <button type="submit">Logout</button>
 </form>
 
+<a href="{% url 'add-client' %}">Add Client</a>
+
+{% block content %}
+
+
+{% endblock %}
+
 {% else %}
 
 <a href="{% url 'login' %}">Login</a>
@@ -16,7 +23,3 @@
 
 {% endif %}
 
-{% block content %}
-
-
-{% endblock %}

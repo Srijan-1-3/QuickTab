@@ -1,0 +1,10 @@
+{% extends 'invoice/base.html' %}
+
+
+{% block content %}
+<h1>Clients</h1>
+
+{% for client in clients %}
+{{ client.name }}
+{% endfor %}
+{% endblock %}
