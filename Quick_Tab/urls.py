@@ -25,6 +25,9 @@ urlpatterns = [
     path('clients/',views.clients,name='clients'),
     path('logout/',views.logoutuser,name='logoutuser'),
     path('login/',views.loginuser,name='login'),
-    path('add-client/',views.add_client,name="add-client")
+    path('add-client/',views.add_client,name="add-client"),
+    path('inventory/',views.inventory,name="inventory"),
+    path('add_invoice/', views.add_invoice, name='add_invoice'),
+    path('to-pdf', views.render_pdf_view, name='to_pdf'),
     
 ]

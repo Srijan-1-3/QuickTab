@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+
+
+<div class=" mt-5">
+    <h1>{{type}}</h1>
+
+   <b>Name :</b>  {{name}} <br>
+   <b>Phone No :</b>  {{phone}} <br>
+   <b>Date :</b>  {{date}} <br>
+
+    <hr>
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Line Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="text-center px-5 ms-auto" scope="row">1</th>
+            <td class="text-center px-5 ms-auto">{{line_one}}</td>
+            <td class="text-center px-5 ms-auto">{{line_one_quantity}}</td>
+            <td class="text-center px-5 ms-auto">{{line_one_price}}</td>
+            <td class="text-center px-5 ms-auto">{{line_one_total}}</td>
+          </tr>
+          
+
+          {% if line_two %}
+          <tr>
+            <th scope="row">1</th>
+            <td class="text-center px-5 ms-auto">{{line_two}}</td>
+            <td class="text-center px-5 ms-auto">{{line_two_quantity}}</td>
+            <td class="text-center px-5 ms-auto">{{line_two_price}}</td>
+            <td class="text-center px-5 ms-auto">{{line_two_total}}</td>
+          </tr>
+{% endif %}
+
+{% if line_three %}
+          <tr>
+            <th scope="row">1</th>
+            <td class="text-center px-5 ms-auto">{{line_three}}</td>
+            <td class="text-center px-5 ms-auto">{{line_three_quantity}}</td>
+            <td class="text-center px-5 ms-auto">{{line_three_price}}</td>
+            <td class="text-center px-5 ms-auto">{{line_three_total}}</td>
+          </tr>
+          {% endif %}
+          {% if line_four %}
+          <tr>
+            <th scope="row">1</th>
+            <td class="text-center px-5 ms-auto">{{line_four}}</td>
+            <td class="text-center px-5 ms-auto">{{line_four_quantity}}</td>
+            <td class="text-center px-5 ms-auto">{{line_four_price}}</td>
+            <td class="text-center px-5 ms-auto">{{line_four_total}}</td>
+          </tr>
+          {% endif %}
+          {% if line_five %}
+
+          <tr>
+            <th scope="row">1</th>
+            <td class="text-center px-5 ms-auto">{{line_five}}</td>
+            <td class="text-center px-5 ms-auto">{{line_five_quantity}}</td>
+            <td class="text-center px-5 ms-auto">{{line_five_price}}</td>
+            <td class="text-center px-5 ms-auto">{{line_five_total}}</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+
+<br><br><br><br>
+      <h4>Total Amount : Rs. {{total}}</h4>
+
+</div>
+
+
+
+<script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>

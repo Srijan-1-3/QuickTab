@@ -1,0 +1,194 @@
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+
+<div class="text-center mt-5">
+    <h2>Invoice</h2>
+    <form method='POST' action="{% url 'to_pdf' %}" class="form-control">{% csrf_token %}
+        <div class="row">
+            <div class='col-sm-6'>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label class="mt-3">Invoice Date</label> <br>
+                    {{ form.invoice_date }} <br>
+                    <label class="mt-3">Name</label> <br>
+                    {{ form.name }} <br>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="" class="mt-3">Phone Number</label> <br>
+                    {{ form.phone_number }} <br>
+                  </div>
+                </div>
+                <br>
+                
+                <div class="row">
+                  <div class=" col-md-6 ">
+                    <label for="">Items</label>
+                   <br>
+                    <span >{{ form.line_one }}</span>
+                  </div>
+                  <div class=" col-md-2">
+                    <label for="">Quantity</label> <br>
+                  <span class="">{{ form.line_one_quantity }}</span>  
+                  </div>
+                  <div class=" col-md-2">
+                    <label for="">Price</label> <br>
+                  <span class="">{{ form.line_one_unit_price }}</span>  
+                  </div>
+                  <div class=" col-md-2">
+                    <label for="">Line Total</label>
+                   <span class="">{{ form.line_one_total_price }}</span> 
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class=" col-md-6 ">
+                     
+                      <span id="l1">{{ form.line_two }}</span>
+                    </div>
+                    <div class=" col-md-2">
+                      
+                    <span class="">{{ form.line_two_quantity }}</span>  
+                    </div>
+                    <div class=" col-md-2">
+                      
+                    <span class="">{{ form.line_two_unit_price }}</span>  
+                    </div>
+                    <div class=" col-md-2">
+              
+                     <span class="">{{ form.line_two_total_price }}</span> 
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class=" col-md-6 ">
+                     
+                      <span id="l1">{{ form.line_three }}</span>
+                    </div>
+                    <div class=" col-md-2">
+               
+                    <span class="">{{ form.line_three_quantity }}</span>  
+                    </div>
+                    <div class=" col-md-2">
+             
+                    <span class="">{{ form.line_three_unit_price }}</span>  
+                    </div>
+                    <div class=" col-md-2">
+         
+                     <span class="">{{ form.line_three_total_price }}</span> 
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class=" col-md-6 ">
+         
+                      <span id="l1">{{ form.line_four }}</span>
+                    </div>
+                    <div class=" col-md-2">
+             
+                    <span class="">{{ form.line_four_quantity }}</span>  
+                    </div>
+                    <div class=" col-md-2">
+                  
+                    <span class="">{{ form.line_four_unit_price }}</span>  
+                    </div>
+                    <div class=" col-md-2">
+           
+                     <span class="">{{ form.line_four_total_price }}</span> 
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class=" col-md-6 ">
+            
+                      <span id="l1">{{ form.line_five }}</span>
+                    </div>
+                    <div class=" col-md-2">
+             
+                    <span class="">{{ form.line_five_quantity }}</span>  
+                    </div>
+                    <div class=" col-md-2">
+               
+                    <span class="">{{ form.line_five_unit_price }}</span>  
+                    </div>
+                    <div class=" col-md-2">
+                   
+                     <span class="">{{ form.line_five_total_price }}</span> 
+                    </div>
+                  </div>
+
+                  <div class="row mt-5">
+                    <div class="form-group col-md-12">
+                      {{ form.invoice_type }}
+                    </div>
+                    <div class="form-group col-md-12 mt-3">
+                        <label for="">Total</label>
+                      {{ form.total }}
+                    </div>
+                  </div>
+              
+
+                <button type="submit" class="btn btn-primary mt-3">Generate</button>
+
+                <!-- <input type="submit" value='Submit'/>   -->
+            </div>
+        </div>
+    </form>
+</div><!-- End myform -->
+
+<script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script>
+    $('#id_line_one_quantity, #id_line_one_unit_price, #id_line_two_quantity, #id_line_two_unit_price, #id_line_three_quantity, #id_line_three_unit_price, #id_line_four_quantity, #id_line_four_unit_price, #id_line_five_quantity, #id_line_five_unit_price, #id_line_six_quantity, #id_line_six_unit_price, #id_line_seven_quantity, #id_line_seven_unit_price, #id_line_eight_quantity, #id_line_eight_unit_price #id_line_nine_quantity, #id_line_nine_unit_price, #id_line_ten_quantity, #id_line_ten_unit_price').keyup(function(){
+    var line_one_quantity_text = $('#id_line_one_quantity').val();
+    var line_one_unit_price_text = $('#id_line_one_unit_price').val();
+    var line_one_total = line_one_quantity_text * line_one_unit_price_text
+
+    var line_two_quantity_text = $('#id_line_two_quantity').val();
+    var line_two_unit_price_text = $('#id_line_two_unit_price').val();
+    var line_two_total = line_two_quantity_text * line_two_unit_price_text
+
+    var line_three_quantity_text = $('#id_line_three_quantity').val();
+    var line_three_unit_price_text = $('#id_line_three_unit_price').val();
+    var line_three_total = line_three_quantity_text * line_three_unit_price_text
+    
+    var line_four_quantity_text = $('#id_line_four_quantity').val();
+    var line_four_unit_price_text = $('#id_line_four_unit_price').val();
+    var line_four_total = line_four_quantity_text * line_four_unit_price_text
+
+    var line_five_quantity_text = $('#id_line_five_quantity').val();
+    var line_five_unit_price_text = $('#id_line_five_unit_price').val();
+    var line_five_total = line_five_quantity_text * line_five_unit_price_text
+
+    var line_six_quantity_text = $('#id_line_six_quantity').val();
+    var line_six_unit_price_text = $('#id_line_six_unit_price').val();
+    var line_six_total = line_six_quantity_text * line_six_unit_price_text
+
+    var line_seven_quantity_text = $('#id_line_seven_quantity').val();
+    var line_seven_unit_price_text = $('#id_line_seven_unit_price').val();
+    var line_seven_total = line_seven_quantity_text * line_seven_unit_price_text
+
+    var line_eight_quantity_text = $('#id_line_eight_quantity').val();
+    var line_eight_unit_price_text = $('#id_line_eight_unit_price').val();
+    var line_eight_total = line_eight_quantity_text * line_eight_unit_price_text
+
+    var line_nine_quantity_text = $('#id_line_nine_quantity').val();
+    var line_nine_unit_price_text = $('#id_line_nine_unit_price').val();
+    var line_nine_total = line_nine_quantity_text * line_nine_unit_price_text
+
+    var line_ten_quantity_text = $('#id_line_ten_quantity').val();
+    var line_ten_unit_price_text = $('#id_line_ten_unit_price').val();
+    var line_ten_total = line_ten_quantity_text * line_ten_unit_price_text
+
+    var total = line_one_total + line_two_total + line_three_total + line_four_total + line_five_total;
+
+    $('#id_line_one_total_price').val(line_one_total);
+    $('#id_line_two_total_price').val(line_two_total);
+    $('#id_line_three_total_price').val(line_three_total);
+    $('#id_line_four_total_price').val(line_four_total);
+    $('#id_line_five_total_price').val(line_five_total);
+
+    $('#id_total').val(total);
+});
+</script>
+
+

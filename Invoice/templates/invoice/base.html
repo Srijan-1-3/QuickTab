@@ -1,15 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick-Tab</title>
+    
+
+    <!--Bootstrap CDN Link -->
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+
+
+    <!-- Google Fonts ----->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
 {% if user.is_authenticated %}
 
-{{user.username}} <br>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Quick-Tab</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link mx-5" aria-current="page" href="{% url 'clients' %}">Clients</a>
+        </li>
+        <li class="nav-item mx-5">
+          <a class="nav-link" href="{% url 'inventory' %}">Inventory</a>
+        </li>
+       
+        <li class="nav-item mx-5">
+          <a class="nav-link" href="{% url 'add_invoice' %}">Invoices</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search" method="POST" action="{% url 'logoutuser' %}">
+        {% csrf_token %}
+        <button class="btn btn-primary" type="submit">Logout</button>
+      </form>
+    </div>
+  </div>
+</nav>
 
-
-
-<form action="{% url 'logoutuser' %}" method="POST">
-    {% csrf_token %}
-    <button type="submit">Logout</button>
-</form>
-
-<a href="{% url 'add-client' %}">Add Client</a>
 
 {% block content %}
 
@@ -18,8 +57,58 @@
 
 {% else %}
 
-<a href="{% url 'login' %}">Login</a>
-<a href="{% url 'signup' %}">Signup</a>
+<head>
+  <link rel="stylesheet" href="{% static 'Invoice/base.css' %}">
+</head>
+<body>
+<section class="header">
+    <nav class="navbar navbar-expand-lg  fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Quick-Tab</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item  px-3">
+                <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-3" href="{% url 'signup' %}">Signup</a>
+              </li>
+             
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <div class="banner container">
+          <div class="row">
+              <div class="col-md-6">
+                     
+                  <h1>Stress less and manage your business with Quick-Tab, Your go-to billing system.</h1><br>
+                  <a href="{% url 'login' %}" class="btn btn-dark banner-btns">Login</a>
+                  <a href="{% url 'signup' %}" class="btn btn-secondary banner-btns">Signup</a>
+              </div>
+              <div class="col-md-6"><img src="{% static 'Invoice/banner-img.png' %}" alt="" class="img-fluid banner-img"></div>
+          </div>
+      </div>
+</section>
+<section class="about">
+   
+</section>
+    
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+
+
+
+<!-- <a href="{% url 'login' %}">Login</a>
+<a href="{% url 'signup' %}">Signup</a> -->
 
 {% endif %}
 
+</html>
