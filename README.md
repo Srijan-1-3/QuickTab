@@ -10,7 +10,7 @@ The project “QuickTab- Your Go-To Billing System” aims to solve billing prob
 ### Project Objective
 
 The project aims to provide the following services : 
-Easy to use interface
- Dynamic Inventory Updates
- Saves time.
- Affordable prices 
+-Easy to use interface
+-Dynamic Inventory Updates
+-Saves time.
+-Affordable prices 
